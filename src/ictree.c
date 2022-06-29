@@ -1110,7 +1110,9 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    sort_lines(lines);
+    if (!options.nosort) {
+        sort_lines(lines);
+    }
     total_paths_l = get_paths(&paths, lines.lines, lines.lines_l, options.separator, options.init_paths_state);
 
     if (setup_signals() != 0) {

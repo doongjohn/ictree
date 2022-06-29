@@ -32,6 +32,7 @@
 
 static struct option long_opts[] = {
     { "fold",       no_argument,        NULL,  'f' },
+    { "nosort",     no_argument,        NULL,  'n' },
     { "separator",  required_argument,  NULL,  's' },
     { "version",    no_argument,        NULL,  'v' },
     { "help",       no_argument,        NULL,  'h' },
@@ -55,6 +56,9 @@ enum ArgAction process_args(Options *options, int argc, char **argv)
             break;
         case 'f':
             options->init_paths_state = PathStateFolded;
+            break;
+        case 'n':
+            options->nosort = 1;
             break;
         case 's':
             if (strlen(optarg) != 1) {

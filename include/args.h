@@ -31,6 +31,7 @@ enum ArgAction {
 typedef struct Options {
     char *filename;
     PathState init_paths_state;
+    char nosort;
     char separator;
 } Options;
 
